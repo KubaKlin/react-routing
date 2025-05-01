@@ -25,10 +25,11 @@ const useArticleCreate = () => {
         throw new Error('Failed to create article');
       }
 
-      return true;
+      const createdArticle = await response.json();
+      return createdArticle.id;
     } catch (error) {
       console.error('Error creating article:', error);
-      return false;
+      return null;
     }
   };
 

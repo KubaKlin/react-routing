@@ -29,11 +29,10 @@ export const ArticleForm = ({ isEditing, article }) => {
 
     try {
       const articleData = { title, content };
-      const success = await onSubmit(articleData);
+      const articleId = await onSubmit(articleData);
 
-      if (success) {
-        navigate(`/articles/${article.id}`);
-      }
+      navigate(`/articles/${articleId}`);
+
     } catch (error) {
       console.error('Error:', error);
     } finally {

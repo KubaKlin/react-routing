@@ -31,10 +31,11 @@ const useArticleEdit = () => {
         throw new Error('Failed to update article');
       }
 
-      return true;
+      const createdArticle = await response.json();
+      return createdArticle.id;
     } catch (error) {
       console.error('Error updating article:', error);
-      return false;
+      return null;
     }
   };
 
