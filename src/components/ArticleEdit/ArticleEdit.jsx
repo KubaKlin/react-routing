@@ -1,4 +1,4 @@
-import useArticleDelete from '../../hooks/useArticleDelete.js';
+import useArticleDelete from '../../hooks/useArticleDelete';
 import { Button, Box, IconButton } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';

@@ -5,8 +5,8 @@ import useSearchQuery from '../../hooks/useSearchQuery';
 import SortButton from '../SortButton/SortButton';
 import SearchBar from '../SearchBar/SearchBar';
 import { ArticlesList } from '../ArticlesList/ArticlesList';
-import useLocalStorage from '../../hooks/useLocalStorage.js';
-import useArticles from '../../hooks/useArticles.js';
+import useLocalStorage from '../../hooks/useLocalStorage';
+import useArticles from '../../hooks/useArticles';
 import { useDebounce } from 'use-debounce';
 
 const ArticlesListPage = () => {
