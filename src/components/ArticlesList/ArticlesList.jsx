@@ -6,7 +6,6 @@ export const ArticlesList = ({
   favoriteArticles,
   onToggleFavorite,
 }) => {
-
   return (
     <List sx={{ background: '#efefef' }}>
       {articles.map((article) => (

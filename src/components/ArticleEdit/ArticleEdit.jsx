@@ -2,7 +2,7 @@ import useArticleDelete from '../../hooks/useArticleDelete.js';
 import { Button, Box, IconButton } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 export const ArticleEdit = ({ article, isFavorite, onToggleFavorite }) => {
   const { deleteArticle } = useArticleDelete();

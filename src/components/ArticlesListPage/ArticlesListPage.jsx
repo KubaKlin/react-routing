@@ -67,4 +67,4 @@ const ArticlesListPage = () => {
   );
 };
 
-export default ArticlesListPage; 
+export default ArticlesListPage;

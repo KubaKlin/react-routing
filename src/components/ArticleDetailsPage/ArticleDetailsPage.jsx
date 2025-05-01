@@ -46,14 +46,14 @@ const ArticleDetailsPage = () => {
   return (
     <Container maxWidth="md">
       <Box sx={{ my: 4 }}>
-        <Box sx={{ display: 'flex', gap: 2, my: 4  }}>
+        <Box sx={{ display: 'flex', gap: 2, my: 4 }}>
           <Button variant="outlined" onClick={handleBack}>
             Back to List
           </Button>
           <Button
-              variant="outlined"
-              onClick={handleToggleFavorite}
-              color={isFavorite ? 'primary' : 'inherit'}
+            variant="outlined"
+            onClick={handleToggleFavorite}
+            color={isFavorite ? 'primary' : 'inherit'}
           >
             {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
           </Button>
@@ -70,4 +70,4 @@ const ArticleDetailsPage = () => {
   );
 };
 
-export default ArticleDetailsPage; 
+export default ArticleDetailsPage;

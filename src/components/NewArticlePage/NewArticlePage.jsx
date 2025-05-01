@@ -5,10 +5,8 @@ import useArticleCreate from '../../hooks/useArticleCreate';
 
 const NewArticlePage = () => {
   const navigate = useNavigate();
-  const {
-    open: createOpen,
-    handleClose: handleCreateClose,
-  } = useArticleCreate();
+  const { open: createOpen, handleClose: handleCreateClose } =
+    useArticleCreate();
 
   const handleModalClose = (articleId) => {
     handleCreateClose();
@@ -35,4 +33,4 @@ const NewArticlePage = () => {
   );
 };
 
-export default NewArticlePage; 
+export default NewArticlePage;
