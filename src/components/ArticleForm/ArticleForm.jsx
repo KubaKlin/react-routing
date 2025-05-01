@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useArticleForm } from './useArticleForm';
-import { TextField, Button } from '@mui/material';
+import { TextField, Button, Box } from '@mui/material';
 import { useNavigate } from "react-router-dom";
 
 export const ArticleForm = ({ article, isEditing, onSubmit }) => {
@@ -28,6 +28,10 @@ export const ArticleForm = ({ article, isEditing, onSubmit }) => {
     }
   };
 
+  const handleBack = () => {
+    navigate('/articles');
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <TextField
@@ -45,17 +49,21 @@ export const ArticleForm = ({ article, isEditing, onSubmit }) => {
         onChange={handleContentChange}
         label={isEditing ? 'Article content' : 'New article content'}
         fullWidth
-        sx={{ mt: 1 }}
+        sx={{ mt: 2 }}
         variant="filled"
       />
-      <Button
-        type="submit"
-        sx={{ mt: 1 }}
-        variant="outlined"
-        disabled={isLoading}
-      >
-        {isLoading ? 'Loading...' : isEditing ? 'Update' : 'Submit'}
-      </Button>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', mt: 3 }}>
+        <Button variant="outlined" onClick={handleBack}>
+          Back to List
+        </Button>
+        <Button
+          type="submit"
+          variant="outlined"
+          disabled={isLoading}
+        >
+          {isLoading ? 'Loading...' : isEditing ? 'Update' : 'Submit'}
+        </Button>
+      </Box>
     </form>
   );
 };

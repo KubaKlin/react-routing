@@ -3,18 +3,6 @@ import { ArticleForm } from '../ArticleForm/ArticleForm';
 import useArticleCreate from '../../hooks/useArticleCreate';
 import useArticleEdit from '../../hooks/useArticleEdit';
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
-
 export const ArticleModal = ({ onClose, isEditing, article }) => {
   const { handleCreate } = useArticleCreate();
   const { handleEdit } = useArticleEdit();
@@ -28,16 +16,7 @@ export const ArticleModal = ({ onClose, isEditing, article }) => {
   };
 
   return (
-
-      <Box sx={style}>
-        <Typography
-          id="article-modal-title"
-          variant="h6"
-          component="h2"
-          sx={{ mb: 2 }}
-        >
-          {isEditing ? 'Edit article' : 'Add new article'}
-        </Typography>
+      <Box>
         <ArticleForm
           article={article}
           isEditing={isEditing}
