@@ -1,22 +1,24 @@
+import { useState } from 'react';
 import { Container, Box, Typography, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import useSearchQuery from '../../hooks/useSearchQuery';
 import SortButton from '../SortButton/SortButton';
 import SearchBar from '../SearchBar/SearchBar';
 import { ArticlesList } from '../ArticlesList/ArticlesList';
 import useLocalStorage from '../../hooks/useLocalStorage.js';
 import useArticles from '../../hooks/useArticles.js';
+import { useDebounce } from 'use-debounce';
 
 const ArticlesListPage = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useSearchQuery();
+  const [debouncedSearchQuery] = useDebounce(searchQuery, 500);
   const [isSorted, setIsSorted] = useState(false);
   const [favoriteArticles, setFavoriteArticles] = useLocalStorage(
     'favoriteArticles',
     [],
   );
-  const { articles } = useArticles(isSorted, searchQuery);
+  const { articles } = useArticles(isSorted, debouncedSearchQuery);
 
   const handleToggleFavorite = (articleId) => {
     setFavoriteArticles((previous) => {
