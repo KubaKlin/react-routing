@@ -1,6 +1,6 @@
 import { Container, Box, Typography } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArticleModal } from '../ArticleModal/ArticleModal';
+import { ArticleForm } from '../ArticleForm/ArticleForm';
 import useArticleEdit from '../../hooks/useArticleEdit';
 import useArticles from '../../hooks/useArticles';
 
@@ -38,7 +38,7 @@ const EditArticlePage = () => {
             Edit Article
           </Typography>
         </Box>
-        <ArticleModal
+        <ArticleForm
           open={editOpen}
           onClose={handleModalClose}
           isEditing={true}

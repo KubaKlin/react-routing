@@ -1,6 +1,6 @@
 import { Container, Box, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { ArticleModal } from '../ArticleModal/ArticleModal';
+import { ArticleForm } from '../ArticleForm/ArticleForm';
 import useArticleCreate from '../../hooks/useArticleCreate';
 
 const NewArticlePage = () => {
@@ -25,7 +25,7 @@ const NewArticlePage = () => {
             Create New Article
           </Typography>
         </Box>
-        <ArticleModal
+        <ArticleForm
           open={createOpen}
           onClose={handleModalClose}
           isEditing={false}
