@@ -18,7 +18,7 @@ const ArticlesListPage = () => {
     'favoriteArticles',
     [],
   );
-  const { articles } = useArticles(isSorted, debouncedSearchQuery);
+  const { articles, refreshArticles } = useArticles(isSorted, debouncedSearchQuery);
 
   const handleToggleFavorite = (articleId) => {
     setFavoriteArticles((previous) => {
@@ -61,6 +61,7 @@ const ArticlesListPage = () => {
           articles={articles}
           favoriteArticles={favoriteArticles}
           onToggleFavorite={handleToggleFavorite}
+          refreshArticles={refreshArticles}
         />
       </Box>
     </Container>

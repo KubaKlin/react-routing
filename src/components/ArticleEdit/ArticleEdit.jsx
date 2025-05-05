@@ -4,8 +4,8 @@ import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import { useNavigate } from 'react-router-dom';
 
-export const ArticleEdit = ({ article, isFavorite, onToggleFavorite }) => {
-  const { deleteArticle } = useArticleDelete();
+export const ArticleEdit = ({ article, isFavorite, onToggleFavorite, refreshArticles }) => {
+  const { deleteArticle } = useArticleDelete(refreshArticles);
 
   const navigate = useNavigate();
 
