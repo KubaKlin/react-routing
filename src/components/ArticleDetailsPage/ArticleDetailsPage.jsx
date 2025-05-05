@@ -1,20 +1,29 @@
-import { Container, Box, Typography, Button } from '@mui/material';
+import { Container, Box, Typography, Button, CircularProgress } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
-import useArticles from '../../hooks/useArticles';
+import useArticle from '../../hooks/useArticle';
 import useFavoriteArticles from '../../hooks/useFavoriteArticles';
 import useArticleNotFound from '../../hooks/useArticleNotFound.jsx';
 
 const ArticleDetailsPage = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const { articles } = useArticles(false, '');
+  const { article, isLoading } = useArticle(id);
   const { favoriteArticles, handleToggleFavorite } = useFavoriteArticles();
 
-  const article = articles.find((article) => article.id === id);
   const { renderNotFound } = useArticleNotFound(article);
 
   const notFoundComponent = renderNotFound();
   if (notFoundComponent) return notFoundComponent;
+
+  if (isLoading) {
+    return (
+      <Container maxWidth="md">
+        <Box sx={{ display: 'flex', justifyContent: 'center', my: 4 }}>
+          <CircularProgress />
+        </Box>
+      </Container>
+    );
+  }
 
   const isFavorite = favoriteArticles.includes(article.id);
 
