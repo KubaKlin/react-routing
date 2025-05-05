@@ -1,16 +1,13 @@
 import { Container, Box, Typography, Button } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
 import useArticles from '../../hooks/useArticles';
-import useLocalStorage from '../../hooks/useLocalStorage';
+import useFavoriteArticles from '../../hooks/useFavoriteArticles';
 
 const ArticleDetailsPage = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { articles } = useArticles(false, '');
-  const [favoriteArticles, setFavoriteArticles] = useLocalStorage(
-    'favoriteArticles',
-    [],
-  );
+  const { favoriteArticles, handleToggleFavorite } = useFavoriteArticles();
 
   const article = articles.find((article) => article.id === id);
 
@@ -23,15 +20,6 @@ const ArticleDetailsPage = () => {
       </Container>
     );
   }
-
-  const handleToggleFavorite = () => {
-    setFavoriteArticles((previous) => {
-      if (previous.includes(article.id)) {
-        return previous.filter((id) => id !== article.id);
-      }
-      return [...previous, article.id];
-    });
-  };
 
   const isFavorite = favoriteArticles.includes(article.id);
 
@@ -52,7 +40,7 @@ const ArticleDetailsPage = () => {
           </Button>
           <Button
             variant="outlined"
-            onClick={handleToggleFavorite}
+            onClick={() => handleToggleFavorite(article.id)}
             color={isFavorite ? 'primary' : 'inherit'}
           >
             {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
