@@ -17,4 +17,4 @@ const useArticleNotFound = (article) => {
   return { renderNotFound };
 };
 
-export default useArticleNotFound; 
+export default useArticleNotFound;

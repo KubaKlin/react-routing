@@ -1,7 +1,10 @@
 import useLocalStorage from './useLocalStorage';
 
 const useFavoriteArticles = () => {
-  const [favoriteArticles, setFavoriteArticles] = useLocalStorage('favoriteArticles', []);
+  const [favoriteArticles, setFavoriteArticles] = useLocalStorage(
+    'favoriteArticles',
+    [],
+  );
 
   const handleToggleFavorite = (articleId) => {
     setFavoriteArticles((previous) => {
@@ -18,4 +21,4 @@ const useFavoriteArticles = () => {
   };
 };
 
-export default useFavoriteArticles; 
+export default useFavoriteArticles;

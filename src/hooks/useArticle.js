@@ -7,8 +7,10 @@ const useArticle = (articleId) => {
   useEffect(() => {
     const fetchArticle = async () => {
       try {
-        const response = await fetch(`http://localhost:3010/articles/${articleId}`);
-        
+        const response = await fetch(
+          `http://localhost:3010/articles/${articleId}`,
+        );
+
         if (!response.ok) {
           throw new Error('Failed to fetch article');
         }
@@ -30,4 +32,4 @@ const useArticle = (articleId) => {
   return { article, isLoading };
 };
 
-export default useArticle; 
+export default useArticle;

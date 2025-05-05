@@ -1,4 +1,10 @@
-import { Container, Box, Typography, Button, CircularProgress } from '@mui/material';
+import {
+  Container,
+  Box,
+  Typography,
+  Button,
+  CircularProgress,
+} from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
 import useArticle from '../../hooks/useArticle';
 import useFavoriteArticles from '../../hooks/useFavoriteArticles';

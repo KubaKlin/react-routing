@@ -1,7 +1,14 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const useArticleForm = (initialTitle = '', initialContent = '', isEditing = false, article = null, handleCreate, handleEdit) => {
+const useArticleForm = (
+  initialTitle = '',
+  initialContent = '',
+  isEditing = false,
+  article = null,
+  handleCreate,
+  handleEdit,
+) => {
   const [title, setTitle] = useState(initialTitle);
   const [content, setContent] = useState(initialContent);
   const [isLoading, setIsLoading] = useState(false);

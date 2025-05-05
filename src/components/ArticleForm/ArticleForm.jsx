@@ -21,7 +21,7 @@ export const ArticleForm = ({ isEditing, article }) => {
     isEditing,
     article,
     handleCreate,
-    handleEdit
+    handleEdit,
   );
 
   return (
