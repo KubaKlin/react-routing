@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { ArticleForm } from '../ArticleForm/ArticleForm';
 import useArticleEdit from '../../hooks/useArticleEdit';
 import useArticles from '../../hooks/useArticles';
+import useArticleNotFound from '../../hooks/useArticleNotFound.jsx';
 
 const EditArticlePage = () => {
   const navigate = useNavigate();
@@ -11,16 +12,10 @@ const EditArticlePage = () => {
   const { open: editOpen, handleClose: handleEditClose } = useArticleEdit();
 
   const article = articles.find((article) => article.id === id);
+  const { renderNotFound } = useArticleNotFound(article);
 
-  if (!article) {
-    return (
-      <Container maxWidth="md">
-        <Box sx={{ my: 4 }}>
-          <Typography variant="h4">Article not found</Typography>
-        </Box>
-      </Container>
-    );
-  }
+  const notFoundComponent = renderNotFound();
+  if (notFoundComponent) return notFoundComponent;
 
   const handleModalClose = () => {
     handleEditClose();

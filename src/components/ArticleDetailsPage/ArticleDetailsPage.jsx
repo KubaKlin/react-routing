@@ -2,6 +2,7 @@ import { Container, Box, Typography, Button } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
 import useArticles from '../../hooks/useArticles';
 import useFavoriteArticles from '../../hooks/useFavoriteArticles';
+import useArticleNotFound from '../../hooks/useArticleNotFound.jsx';
 
 const ArticleDetailsPage = () => {
   const navigate = useNavigate();
@@ -10,16 +11,10 @@ const ArticleDetailsPage = () => {
   const { favoriteArticles, handleToggleFavorite } = useFavoriteArticles();
 
   const article = articles.find((article) => article.id === id);
+  const { renderNotFound } = useArticleNotFound(article);
 
-  if (!article) {
-    return (
-      <Container maxWidth="md">
-        <Box sx={{ my: 4 }}>
-          <Typography variant="h4">Article not found</Typography>
-        </Box>
-      </Container>
-    );
-  }
+  const notFoundComponent = renderNotFound();
+  if (notFoundComponent) return notFoundComponent;
 
   const isFavorite = favoriteArticles.includes(article.id);
 
