@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const useArticleForm = (initialTitle = '', initialContent = '') => {
+const useArticleForm = (initialTitle = '', initialContent = '') => {
   const [title, setTitle] = useState(initialTitle);
   const [content, setContent] = useState(initialContent);
 
@@ -25,3 +25,5 @@ export const useArticleForm = (initialTitle = '', initialContent = '') => {
     handleContentChange,
   };
 };
+
+export default useArticleForm;

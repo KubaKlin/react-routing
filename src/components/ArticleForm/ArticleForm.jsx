@@ -1,7 +1,7 @@
 import { Box, Button, TextField } from '@mui/material';
 import useArticleCreate from '../../hooks/useArticleCreate';
 import useArticleEdit from '../../hooks/useArticleEdit';
-import { useArticleForm } from './useArticleForm';
+import useArticleForm from './useArticleForm';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
