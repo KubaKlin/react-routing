@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const useSearchQuery = () => {
   const location = useLocation();
@@ -9,17 +9,18 @@ const useSearchQuery = () => {
     searchParams.get('search') || '',
   );
 
-  useEffect(() => {
+  const settingSearchQuery = (newQuery) => {
+    setSearchQuery(newQuery);
     const params = new URLSearchParams(location.search);
-    if (searchQuery) {
-      params.set('search', searchQuery);
+    if (newQuery) {
+      params.set('search', newQuery);
     } else {
       params.delete('search');
     }
     navigate({ search: params.toString() }, { replace: true });
-  }, [searchQuery, location.search, navigate]);
+  };
 
-  return [searchQuery, setSearchQuery];
+  return [searchQuery, settingSearchQuery];
 };
 
 export default useSearchQuery;
