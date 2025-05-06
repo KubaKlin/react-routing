@@ -8,7 +8,7 @@ import {
 import { useNavigate, useParams } from 'react-router-dom';
 import useArticle from '../../hooks/useArticle';
 import useFavoriteArticles from '../../hooks/useFavoriteArticles';
-import useArticleNotFound from '../../hooks/useArticleNotFound.jsx';
+import ArticleNotFound from '../ArticleNotFound/ArticleNotFound';
 
 const ArticleDetailsPage = () => {
   const navigate = useNavigate();
@@ -16,10 +16,9 @@ const ArticleDetailsPage = () => {
   const { article, isLoading } = useArticle(id);
   const { favoriteArticles, handleToggleFavorite } = useFavoriteArticles();
 
-  const { renderNotFound } = useArticleNotFound(article);
-
-  const notFoundComponent = renderNotFound();
-  if (notFoundComponent) return notFoundComponent;
+  if (!article) {
+    return <ArticleNotFound />;
+  }
 
   if (isLoading) {
     return (
