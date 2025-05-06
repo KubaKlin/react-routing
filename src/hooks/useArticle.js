@@ -18,7 +18,7 @@ const useArticle = (articleId) => {
         const articleData = await response.json();
         setArticle(articleData);
       } catch (error) {
-        setError(error.message);
+        console.error('Failed to fetch article:', error);
       } finally {
         setIsLoading(false);
       }
