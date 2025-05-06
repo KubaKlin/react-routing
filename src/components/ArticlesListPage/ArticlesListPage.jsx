@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import useSearchQuery from '../../hooks/useSearchQuery';
 import SortButton from '../SortButton/SortButton';
 import SearchBar from '../SearchBar/SearchBar';
-import { ArticlesList } from '../ArticlesList/ArticlesList';
+import ArticlesList from '../ArticlesList/ArticlesList';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import useArticles from '../../hooks/useArticles';
 import { useDebounce } from 'use-debounce';

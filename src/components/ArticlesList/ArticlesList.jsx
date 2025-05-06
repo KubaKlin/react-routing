@@ -1,7 +1,7 @@
 import { List, ListItem, Typography, Box } from '@mui/material';
 import { ArticleEdit } from '../ArticleEdit/ArticleEdit';
 
-export const ArticlesList = ({
+const ArticlesList = ({
   articles,
   favoriteArticles,
   onToggleFavorite,
@@ -37,3 +37,5 @@ export const ArticlesList = ({
     </List>
   );
 };
+
+export default ArticlesList;
