@@ -1,4 +1,4 @@
-const useArticleDelete = (refreshArticles) => {
+const useArticleDelete = (articles, setArticles) => {
   const deleteArticle = async (articleId) => {
     try {
       const response = await fetch(
@@ -12,10 +12,7 @@ const useArticleDelete = (refreshArticles) => {
         throw new Error('Failed to delete article');
       }
 
-      // Refresh the articles list after successful deletion
-      if (refreshArticles) {
-        refreshArticles();
-      }
+      setArticles(articles.filter((article) => article.id !== articleId));
     } catch (error) {
       console.error('Error removing article:', error);
     }

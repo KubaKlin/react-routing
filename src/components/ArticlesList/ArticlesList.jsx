@@ -5,7 +5,7 @@ const ArticlesList = ({
   articles,
   favoriteArticles,
   onToggleFavorite,
-  refreshArticles,
+  setArticles,
 }) => {
   return (
     <List sx={{ background: '#efefef' }}>
@@ -29,7 +29,8 @@ const ArticlesList = ({
               article={article}
               isFavorite={favoriteArticles.includes(article.id)}
               onToggleFavorite={() => onToggleFavorite(article.id)}
-              refreshArticles={refreshArticles}
+              articles={articles}
+              setArticles={setArticles}
             />
           </Box>
         </ListItem>

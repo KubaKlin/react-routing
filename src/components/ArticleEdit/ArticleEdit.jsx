@@ -8,9 +8,10 @@ export const ArticleEdit = ({
   article,
   isFavorite,
   onToggleFavorite,
-  refreshArticles,
+  articles,
+  setArticles,
 }) => {
-  const { deleteArticle } = useArticleDelete(refreshArticles);
+  const { deleteArticle } = useArticleDelete(articles, setArticles);
 
   const navigate = useNavigate();
 

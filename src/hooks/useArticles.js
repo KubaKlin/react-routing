@@ -31,7 +31,7 @@ const useArticles = (shouldSort = false, searchQuery = '') => {
     fetchData();
   }, [fetchData]);
 
-  return { articles, refreshArticles: fetchData };
+  return { articles, setArticles };
 };
 
 export default useArticles;
